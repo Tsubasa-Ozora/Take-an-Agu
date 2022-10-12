@@ -1,1 +1,32 @@
+from datetime import datetime
 
+now = datetime.now()
+
+current_time = now.strftime("%H:%M:%S")
+print("Current Time =", current_time)
+
+def is_it_half(time : str) -> bool:
+    current_min_sec = time[3:]
+    halftime = "30:00"
+    return current_min_sec == halftime
+print(is_it_half(current_time))
+print(is_it_half("13:30:02"))
+print(is_it_half("13:30:00"))
+
+
+class Digimon():
+    def __init__(self, name, art):
+        self.name = name
+        self.art = art
+    
+    def __str__(self):
+        return self.name
+
+    def intro(self):
+        def intro_text(name, art):
+            return f"My Name is {name}. \nI'm a digimon. \nI look like this {art}."
+        return intro_text(self.name, self.art)
+
+agumon = Digimon("Agumon", "...")
+print(agumon)
+print(agumon.intro())
